@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Vibrant Gradient Accents -->
+    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="bar-grad-1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="bar-grad-2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="bar-grad-3" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Ambient Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8" stroke-opacity="0.5" />
+    </pattern>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 42px;
+      fill: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    .subtitle-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      fill: #94a3b8;
+    }
+    .badge-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      fill: #e2e8f0;
+    }
+
+    /* CSS Animations for dynamic elements */
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.08); }
+    }
+    @keyframes bar-bounce-1 {
+      0%, 100% { height: 120px; y: 190px; }
+      50% { height: 160px; y: 150px; }
+    }
+    @keyframes bar-bounce-2 {
+      0%, 100% { height: 180px; y: 130px; }
+      50% { height: 130px; y: 180px; }
+    }
+    @keyframes bar-bounce-3 {
+      0%, 100% { height: 90px; y: 220px; }
+      50% { height: 150px; y: 160px; }
+    }
+    @keyframes bar-bounce-4 {
+      0%, 100% { height: 140px; y: 170px; }
+      50% { height: 200px; y: 110px; }
+    }
+    @keyframes float-pill {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes dash-flow {
+      0% { stroke-dashoffset: 600; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    .ambient-sphere {
+      transform-origin: 950px 180px;
+      animation: pulse-glow 7s ease-in-out infinite;
+    }
+    .bar-1 { animation: bar-bounce-1 4s ease-in-out infinite; }
+    .bar-2 { animation: bar-bounce-2 5s ease-in-out infinite; }
+    .bar-3 { animation: bar-bounce-3 4.5s ease-in-out infinite; }
+    .bar-4 { animation: bar-bounce-4 5.5s ease-in-out infinite; }
+    .floating-card-1 { animation: float-pill 4.8s ease-in-out infinite; }
+    .floating-card-2 { animation: float-pill 5.6s ease-in-out infinite 1s; }
+    .data-flow-line {
+      stroke-dasharray: 12 8;
+      animation: dash-flow 25s linear infinite;
+    }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="360" fill="url(#bg-grad)" />
+  <rect width="1200" height="360" fill="url(#grid)" />
+
+  <!-- Ambient Glowing Spheres (Pure Background) -->
+  <circle cx="1000" cy="160" r="140" fill="#6366f1" opacity="0.15" filter="url(#glow)" class="ambient-sphere" />
+  <circle cx="150" cy="80" r="100" fill="#0ea5e9" opacity="0.12" filter="url(#glow)" />
+
+  <!-- Background Dynamic Graphic Elements (Shifted to right side so text in foreground stays 100% clear) -->
+  <g opacity="0.85">
+    <!-- Chart Grid Lines -->
+    <line x1="820" y1="310" x2="1140" y2="310" stroke="#334155" stroke-width="1.5" />
+    <line x1="820" y1="240" x2="1140" y2="240" stroke="#334155" stroke-dasharray="4 4" stroke-width="1" />
+    <line x1="820" y1="170" x2="1140" y2="170" stroke="#334155" stroke-dasharray="4 4" stroke-width="1" />
+    <line x1="820" y1="100" x2="1140" y2="100" stroke="#334155" stroke-dasharray="4 4" stroke-width="1" />
+
+    <!-- Animated Dynamic Analytics Bars -->
+    <rect class="bar-1" x="840" y="190" width="36" height="120" rx="8" fill="url(#bar-grad-1)" />
+    <rect class="bar-2" x="900" y="130" width="36" height="180" rx="8" fill="url(#bar-grad-2)" />
+    <rect class="bar-3" x="960" y="220" width="36" height="90" rx="8" fill="url(#bar-grad-1)" />
+    <rect class="bar-4" x="1020" y="170" width="36" height="140" rx="8" fill="url(#bar-grad-3)" />
+
+    <!-- Dynamic Curved Trend Line -->
+    <path class="data-flow-line" d="M 830 260 Q 890 140, 940 180 T 1030 110 T 1120 80" fill="none" stroke="#38bdf8" stroke-width="3" filter="url(#glow)" />
+    <circle cx="1120" cy="80" r="6" fill="#38bdf8" />
+    <circle cx="1120" cy="80" r="12" fill="#38bdf8" opacity="0.3" filter="url(#glow)" />
+
+    <!-- Floating Metric Pill 1 (Right) -->
+    <g class="floating-card-1">
+      <rect x="760" y="45" width="180" height="42" rx="21" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" opacity="0.95" />
+      <circle cx="782" cy="66" r="6" fill="#10b981" />
+      <text x="798" y="71" class="badge-label" fill="#38bdf8">Live Traffic: +28.4%</text>
+    </g>
+
+    <!-- Floating Metric Pill 2 (Right) -->
+    <g class="floating-card-2">
+      <rect x="970" y="30" width="170" height="42" rx="21" fill="#0f172a" stroke="#818cf8" stroke-width="1.2" opacity="0.95" />
+      <circle cx="992" cy="51" r="6" fill="#6366f1" />
+      <text x="1008" y="56" class="badge-label" fill="#c084fc">100% Cookieless</text>
+    </g>
+  </g>
+
+  <!-- FOREGROUND LAYER: Title, Subtitle, Badges & Decorative Brand Icons -->
+  <g>
+    <!-- Brand Tag / Top Pill -->
+    <rect x="70" y="48" width="195" height="30" rx="15" fill="#1e293b" stroke="#475569" stroke-width="1" />
+    <text x="85" y="68" class="badge-label" fill="#38bdf8">⚡ CURATED AWESOME LIST</text>
+
+    <!-- Primary Title -->
+    <text x="70" y="132" class="title-text">
+      Web Traffic Analytics
+    </text>
+    <text x="70" y="180" class="title-text" fill="url(#primary-grad)">
+      &amp; Visitor Tracking
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="70" y="226" class="subtitle-text">
+      Open-source, self-hosted, privacy-first &amp; enterprise customer analytics stacks.
+    </text>
+
+    <!-- Interactive / Feature Highlights Foreground Pills -->
+    <g transform="translate(70, 260)">
+      <!-- Pill 1 -->
+      <rect x="0" y="0" width="165" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="22" y="23" class="badge-label" fill="#cbd5e1">🛡️ Privacy-First</text>
+
+      <!-- Pill 2 -->
+      <rect x="178" y="0" width="175" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="198" y="23" class="badge-label" fill="#cbd5e1">🚀 Self-Hostable</text>
+
+      <!-- Pill 3 -->
+      <rect x="365" y="0" width="175" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="385" y="23" class="badge-label" fill="#cbd5e1">📊 Real-Time Data</text>
+    </g>
+  </g>
+</svg>
